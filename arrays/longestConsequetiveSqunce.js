@@ -9,7 +9,7 @@
 
 //approach 1 
 //this is bruteforce approach as it is taking time complexity as 0(n2) and also it is exceeding time limit
-function longestConsecutive(nums) {
+function longestConsecutiveBruteForce(nums) {
     let maxLength=0;
     for(let i=0;i<nums.length;i++){
         let currentNum=nums[i];
@@ -19,6 +19,27 @@ function longestConsecutive(nums) {
             currentStreak+=1;
         }
         maxLength=Math.max(maxLength,currentStreak);
+    }
+    return maxLength;
+}
+
+//approach 2
+//we can use of sets for that
+
+function longestConsecutiveoptimesed(nums){
+    let maxLength=0;
+    let numSet=new Set(nums);
+    for(let num of numSet){
+        if(!numSet.has(num-1)){
+            let currentNum=num;
+            let currentStreak=1;
+            while(numSet.has(currentNum +1)){
+                currentNum+=1;
+                currentStreak+=1;
+            }
+            maxLength=Math.max(maxLength,currentStreak);
+        }
+
     }
     return maxLength;
 }
