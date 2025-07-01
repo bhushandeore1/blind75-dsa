@@ -20,3 +20,19 @@ function longestSubstringWithoutDuplicateCharactersBruteForce(string){
     }
     return maxLength;
 }
+
+
+function longestSubstringWithoutDuplicateCharactersOptmised(string){
+    let maxLength=0;
+    let set=new Set();
+    let left=0;
+    for(let right=0;right<string.length;right++){
+        while(set.has(string[right])){
+            set.delete(string[right]);
+            left++;
+        }
+        set.add(string[right]);
+        maxLength=Math.max(maxLength,right-left+1);
+    }
+    return maxLength;
+}
