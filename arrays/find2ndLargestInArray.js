@@ -1,3 +1,6 @@
+
+//find 2nd largest in array
+//this method is with sorting
 function find2ndLargestInArray(arr){
     const sorted=sortArr(arr);
     return sorted[sorted.length-2];
@@ -27,4 +30,24 @@ function merge(left,right){
         }
     }
     return result.concat(left.slice(i)).concat(right.slice(j));
+}
+
+
+
+//without sorting
+function find2ndLargestInArray1(arr){
+    if(arr.length <2){
+        return null;
+    }
+    let first=-Infinity;
+    let second=-Infinity;
+    for(let num in arr){
+        if(num>first){
+            second=first;
+            first=num;
+        }else if(num> second && num<first){
+            second=num;
+        }
+    }
+    return second ===-Infinity ?null :second;
 }
