@@ -9,3 +9,6 @@ function capitalizeFirstLetterOfEachWord(sentence){
     })
     return result.myJoin(' ')
 }
+
+const sentence="Hi this is javascript"  //Hi This Is Javascript
+capitalizeFirstLetterOfEachWord(sentence);
