@@ -9,4 +9,5 @@ function shuffle(arr){
     return arr;
 }
 
+
 shuffle([1,2,3,4,5,6]);
