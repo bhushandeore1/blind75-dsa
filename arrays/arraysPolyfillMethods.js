@@ -14,3 +14,23 @@ if(!Array.prototype.myJoin){
 }
 
 export const myJoin=Array.prototype.myJoin;
+
+
+
+//Implement Array.prototype.concat
+if(!Array.prototype.myConcat){
+    Array.prototype.myConcat=function(arr){
+        const newArr=[...this];
+        function myConcatImpl(arr){
+            for(let i=0;i<arr.length;i++){
+                if(Array.isArray(arr[i])){
+                    newArr.push(...arr[i]);
+                }else{
+                    newArr.push(arr[i])
+                }
+            }
+        }
+        myConcatImpl(arr);
+        return newArr;  
+    }
+}
