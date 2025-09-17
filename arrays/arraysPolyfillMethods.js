@@ -57,3 +57,22 @@ if(!Array.prototype.myConcat){
  const fillArr=[1,2,3,5,7,8];
  fillArr.myFill(4);
  console.log(fillArr);
+
+
+
+ //custom Implement Array.filter() polyfill
+ if(!Array.prototype.myFilter){
+    Array.prototype.myFilter=function(callBackFunction){
+        const newArr=[];//filter method create new array
+        for(let i=0;i<this.length;i++){   //this means the array on which we are applying the filter
+            if(callBackFunction(this[i])){
+                newArr.push(this[i])
+            }
+        }
+        return newArr;
+    }
+ }
+
+ const filterArr=[1,2,3,4,5,6,7,8];
+ const filteredArr=filterArr.myFilter((num)=>num%2===0); 
+ console.log(filteredArr);  //[2,4,6,8]
