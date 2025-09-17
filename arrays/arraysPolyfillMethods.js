@@ -76,3 +76,28 @@ if(!Array.prototype.myConcat){
  const filterArr=[1,2,3,4,5,6,7,8];
  const filteredArr=filterArr.myFilter((num)=>num%2===0); 
  console.log(filteredArr);  //[2,4,6,8]
+
+
+
+  //implement array.prototype.find()
+ if(!Array.prototype.myFind){
+    Array.prototype.myFind=function(callbackfunction){
+      if(this ===null || this===undefined){
+        return new TypeError("cannot use find method on null or undefined");
+      }
+      if (typeof callbackfunction !== "function") {
+        throw new TypeError("callbackfunction must be a function");
+      }
+      for(let i=0;i<this.length;i++){
+        if(callbackfunction(this[i])){
+          return this[i];
+        }
+      }
+    }
+ }
+
+ const findArr=[1,2,3,4,6];
+ const found=findArr.myFind(num=>num%2===0);
+ const found1=[].find(num=>num%2===0);
+ const found2=[].myFind(num=>num%2===0)
+ console.log(found,found1,found2)
