@@ -123,3 +123,13 @@ if(!Array.prototype.myConcat){
  const flatMapArr=[1,2,4];
  const myFlatMapArr=flatMapArr.myFlatMap((num)=>[num*2]);
  console.log(myFlatMapArr);
+
+
+ //Implement Array.prototype.forEach in js 
+ if(!Array.prototype.myForEach){
+    Array.prototype.myForEach=function(callBackFunction){
+        for(let i=0;i<this.length;i++){
+            callBackFunction(this[i]);
+        }
+    }
+ }
