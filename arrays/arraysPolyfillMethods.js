@@ -101,3 +101,25 @@ if(!Array.prototype.myConcat){
  const found1=[].find(num=>num%2===0);
  const found2=[].myFind(num=>num%2===0)
  console.log(found,found1,found2)
+
+
+
+  //implement Array.prototype.flatMap
+ if(!Array.prototype.myFlatMap){
+    Array.prototype.myFlatMap=function(callbackfunction){
+      const newArr=[];
+      for(let i=0;i<this.length;i++){
+        if(Array.isArray(callbackfunction(this[i]))){
+          newArr.push(...callbackfunction(this[i]));
+        }else{
+          newArr.push(callbackfunction(this[i]))
+        }
+         
+      }
+      return newArr;
+    }
+ }
+
+ const flatMapArr=[1,2,4];
+ const myFlatMapArr=flatMapArr.myFlatMap((num)=>[num*2]);
+ console.log(myFlatMapArr);
