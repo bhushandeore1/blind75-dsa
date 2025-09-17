@@ -34,3 +34,26 @@ if(!Array.prototype.myConcat){
         return newArr;  
     }
 }
+
+
+//this is for fill method
+ if(!Array.prototype.myFill){
+  Array.prototype.myFill=function(value,start,end){
+
+    function implementFill(arr,value,start,end){
+      start=start || 0;
+      end= end || arr.length;
+      start=Number(start);
+      end=Number(end);
+      for(let i=start;i<end;i++){
+        arr[i]=value;
+      }
+      return arr; 
+    }
+    implementFill(this,value,start,end); 
+  }
+ }
+
+ const fillArr=[1,2,3,5,7,8];
+ fillArr.myFill(4);
+ console.log(fillArr);
