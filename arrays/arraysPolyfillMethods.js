@@ -133,3 +133,23 @@ if(!Array.prototype.myConcat){
         }
     }
  }
+
+
+
+//implement Array.prototype.myIncludes
+if(!Array.prototype.myIncludes){
+  Array.prototype.myIncludes=function(valueToFind,fromIndex){
+    fromIndex=fromIndex || 0;
+    let i;
+    for(fromIndex >0 ?i=fromIndex :i=0;i<this.length;i++){
+      if(this[i]===valueToFind){
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+const includesArr=[1,3,5,7,8];
+const testIncludesArr=includesArr.myIncludes(1,2);
+console.log(testIncludesArr);
