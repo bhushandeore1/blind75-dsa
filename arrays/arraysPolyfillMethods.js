@@ -190,7 +190,22 @@ if(!Array.prototype.myReduce){
     return accumulator;
   }
 }
-
 const reduceArr=[1,2,3,4];
 const testMyReduce=reduceArr.myReduce((acc,curr)=>acc+curr,0);
 console.log(testMyReduce);  //should return 10
+
+
+//implement Array.prototype.reverse
+if(!Array.prototype.myReverse){
+  Array.prototype.myReverse=function(){
+    const mid=Math.floor(this.length/2);
+    for(let i=0;i<mid.length;i++){
+      let temp=this[i];
+      this[i]=this[this.length-1-i];
+      this[this.length-1-i]=temp;
+    }
+    return this;
+  }
+}
+const revArr=[1,2,3,4];
+console.log(revArr.myReverse()); //should return [4,3,2,1];
