@@ -167,3 +167,30 @@ if(!Array.prototype.myMap){
 } 
 
 const testMyMap=includesArr.myMap((num)=>num*2); //should return [2,6,10,14,16]
+
+
+//Implement Array.prototype.myReduce
+if(!Array.prototype.myReduce){
+  Array.prototype.myReduce=function(callBackFunction,initialValue){
+    if(typeof callBackFunction !=="function"){
+      throw TypeError("not a function");
+    }
+    let accumulator;
+    let startIndex;
+    if(initialValue !==undefined){
+      accumulator=initialValue;
+      startIndex=1;
+    }else{
+      accumulator=this[0];
+      startIndex=0
+    }
+    for(let i=0;i<this.length;i++){
+      accumulator=callBackFunction(accumulator,this[i]);
+    }
+    return accumulator;
+  }
+}
+
+const reduceArr=[1,2,3,4];
+const testMyReduce=reduceArr.myReduce((acc,curr)=>acc+curr,0);
+console.log(testMyReduce);  //should return 10
