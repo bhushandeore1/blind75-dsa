@@ -151,5 +151,19 @@ if(!Array.prototype.myIncludes){
 }
 
 const includesArr=[1,3,5,7,8];
-const testIncludesArr=includesArr.myIncludes(1,2);
+const testIncludesArr=includesArr.myIncludes(1,2); //should return false
 console.log(testIncludesArr);
+
+
+//Implement Array.prototype.myMap
+if(!Array.prototype.myMap){
+  Array.prototype.myMap=function(callBackFunction){
+    const newArr=[];
+    for(let i=0;i<this.length;i++){
+      newArr.push(callBackFunction(this[i]));
+    }
+    return newArr;
+  }
+} 
+
+const testMyMap=includesArr.myMap((num)=>num*2); //should return [2,6,10,14,16]
